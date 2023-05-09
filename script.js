@@ -67,18 +67,6 @@ function scoreboard() {
     console.log(`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`);
 }
 
-
-  //Game MC:
-  if gameCount === 1 {
-    alert("Get ready to play ..."); 
-  }
-  if gameCount === 5 {
-    alert("Final round, here we go!");
-  }
-
-// allow way for user to end game pre-maturely at any stage - if they click cancel on the prompt or type a word like 'cancel', this exit word should be introduced at the start of the game 
-// message: see you next time!
-
 // TESTS
 gameRound("Rock", "Scissors"); 
 // expected: You Win! Rock beats Scissors
