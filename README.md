@@ -12,6 +12,10 @@ Computer has chosen Scissors
 Computer Wins! Scissors beats undefined
 Scoreboard | YOU: 2 | COMPUTER: 2
 ```
+
+⬜️ scoreboard() function may be unnecessary, doesn't concatenate as expected
+```Computer is the winner!` + scoreboard())```
+
 ## extra stuff 
 ⬜️ would be cool to have something like a game MC lol
 ```
