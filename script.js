@@ -1,21 +1,44 @@
 let gameCount = 1;
-let input = prompt(`Round ${gameCount} | Choose your weapon`, "Type Rock, Scissors or Paper")
-getUserSelection();
+let userScore = 0;
+let computerScore = 0;
+game();
 
-function getUserSelection() {
-  let playerSelection = input[0].toUpperCase() + input.slice(1).toLowerCase();
-  if (playerSelection === "Rock" || playerSelection === "Scissors" || playerSelection === "Paper") {
-    console.log(`You have chosen ${playerSelection}`);
+function game() {
+  let input = prompt(`Round ${gameCount} | Choose your weapon`, "Type Rock, Scissors or Paper");
+  let playerSelection = getUserSelection(input);
+
+  let computerSelection = getComputerChoice();
+  console.log(`Computer has chosen ${computerSelection}`);
+
+  gameRound(playerSelection, computerSelection);
+  scoreboard();
+
+  if (gameCount < 5) {
+    gameCount++;
+    game();
   } else {
-    input = prompt(`Sorry ${input} is not a valid weapon. Please choose again`, "Type Rock, Scissors or Paper");
-    getUserSelection();
+    // compare userWins and computerWins - declare winner and provide report on number of wins
+    console.log(`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`)
+    console.log("Thanks for playing!");
   }
 }
 
+// --------- HELPER FUNCTIONS
+
+function getUserSelection(input) {
+    let convertedInput = input[0].toUpperCase() + input.slice(1).toLowerCase();
+    if (convertedInput === "Rock" || convertedInput === "Scissors" || convertedInput === "Paper") {
+      console.log(`You have chosen ${convertedInput}`);
+      return(convertedInput);
+    } else {
+      input = prompt(`Sorry ${input} is not a valid weapon. Please choose again`, "Type Rock, Scissors or Paper");
+      getUserSelection(input);
+    }
+  }
+
 function getComputerChoice() {
   const choices = ["Rock", "Scissors", "Paper"];
-  let computerSelection = choices[Math.floor(Math.random()*choices.length)];
-  return computerSelection;
+  return choices[Math.floor(Math.random()*choices.length)];
 }
 
 function gameRound(playerSelection, computerSelection) {
@@ -26,20 +49,17 @@ function gameRound(playerSelection, computerSelection) {
       || playerSelection === "Paper" && computerSelection === "Rock" 
 ) {
     console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-    userWins++;
+    userScore++;
   } else {
     console.log(`Computer Wins! ${computerSelection} beats ${playerSelection}`);
-    computerWins++;
+    computerScore++;
   }
 }
 
-function game() {
-  let gameCount = 0; //might make this a global variable?
-  let userWins = 0;
-  let computerWins = 0;
-
-  gameRound(getUserChoice(), getComputerChoice());
+function scoreboard() {
+    console.log(`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`);
 }
+
 
   //advise what number round this is, instructions e.g. 5 games
   // not sure whether to put include in prompt
@@ -52,19 +72,10 @@ function game() {
     console.log("Final round, here we go!");
   }
 
-  //at the end of each game, if gameCount <= 5, increment gameCount 
-  if (gameCount <= 5) {
-    gameCount++;
-  } else {
-    // compare userWins and computerWins - declare winner and provide report
-    console.log(`Scoreboard | YOU: ${userWins} | COMPUTER: ${computerWins}`)
-    console.log("Thanks for playing!");
-  }
-
 // allow way for user to end game pre-maturely at any stage - if they click cancel on the prompt or type a word like 'cancel', this exit word should be introduced at the start of the game 
 // message: see you next time!
 
-//TESTS
+// TESTS
 gameRound("Rock", "Scissors"); 
 // expected: You Win! Rock beats Scissors
 gameRound("Scissors", "Paper"); 
@@ -73,7 +84,5 @@ gameRound("Paper", "Rock");
 // expected: You Win! Paper beats Rock
 gameRound("Scissors", "Rock"); 
 // expected: Computer Wins! Rock beats Scissors
-gameRound("Scissors", "Scissors"); 
-// expected: It's a draw!
 gameRound("Scissors", "Scissors"); 
 // expected: It's a draw!
