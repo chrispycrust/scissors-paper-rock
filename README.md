@@ -1,6 +1,8 @@
 # scissors-paper-rock
 
-code for the odin project's beginner js project: https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+Code for the odin project's beginner js project: https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+
+Since user has to type responses instead of select pre-made choices, code also handles any inputs that don't match rock, scissors or papers.
 
 ## remaining issues
 
