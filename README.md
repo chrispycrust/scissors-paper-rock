@@ -40,7 +40,20 @@ const answer = magic();
 answer(1337); // 56154
 ```
 
-Added return to the else statement where I call the function again - now program works as expected.
+Added return to the else statement where I call the function again `return getUserSelection(input)` - now program works as expected.
+
+```
+function getUserSelection(input) {
+    let convertedInput = input[0].toUpperCase() + input.slice(1).toLowerCase();
+    if (convertedInput === "Rock" || convertedInput === "Scissors" || convertedInput === "Paper") {
+      alert(`You have chosen ${convertedInput}`);
+      return(convertedInput);
+    } else {
+      input = prompt(`Sorry ${input} is not a valid weapon. Please choose again`, "Type Rock, Scissors or Paper");
+      return getUserSelection(input);
+    }
+  }
+```
 
 ⬜️ ISSUE 5<br>
 I wonder if i can do this another way other than getting the function to call itself?
