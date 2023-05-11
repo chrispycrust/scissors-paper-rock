@@ -48,7 +48,7 @@ function getComputerChoice() {
 
 function gameRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    alert(```Round ${gameCount} | It's a draw!```);
+    alert(`Round ${gameCount} | It's a draw!`);
   } else if (playerSelection === "Rock" && computerSelection === "Scissors" 
       || playerSelection === "Scissors" && computerSelection === "Paper" 
       || playerSelection === "Paper" && computerSelection === "Rock" 
