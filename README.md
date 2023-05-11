@@ -4,7 +4,7 @@ code for the odin project's beginner js project: https://www.theodinproject.com/
 
 ## remaining issues
 
-✅ ISSUE 1
+✅ ISSUE 1<br>
 If player makes an in an invalid input at first before finalising the right answer, this invalid input transfers into the final report as 'undefined' - the program doesn't record the input that's actually accepted
 
 ```
@@ -20,7 +20,7 @@ If a valid input is given from the get go, the function goes through the conditi
 
 This must have something to do with the else statement where I'm getting the function to call itself again. ... I'm not sure if this is recursive function - apparently an advanced topic.
 
-**SOLUTION**
+**SOLUTION**<br>
 Visited MDN doc on returning a function
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return
 
@@ -38,23 +38,23 @@ answer(1337); // 56154
 
 Added return to the else statement where I call the function again - now program works as expected.
 
-⬜️ ISSUE 5
+⬜️ ISSUE 5<br>
 I wonder if i can do this another way other than getting the function to call itself?
 
-✅ ISSUE 2
+✅ ISSUE 2<br>
 scoreboard() function may be unnecessary, doesn't concatenate as expected
 ```Computer is the winner!` + scoreboard())```
 
-**SOLUTION** 
+**SOLUTION**<br>
 Interesting ```typeof((`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`))``` returns `undefined` so added `String()` method to result
 
-⬜️ ISSUE 6 
+⬜️ ISSUE 6<br>
 Explore why ```typeof((`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`))``` returns `undefined` ... I expected it to be a string even with variables
 
-⬜️ ISSUE 3
+⬜️ ISSUE 3<br>
 way to make `Thanks for playing!` message less redundant? If I put it outside `if..else` it prints 5 times
 
-⬜️ ISSUE 4
+⬜️ ISSUE 4<br>
 i think i still don't get when to specify parameters and `return`??
 
 ## extra stuff 
