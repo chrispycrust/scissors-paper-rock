@@ -20,18 +20,21 @@ If a valid input is given from the get go, the function goes through the conditi
 
 This must have something to do with the else statement where I'm getting the function to call itself again. ... I'm not sure if this is recursive function - apparently an advanced topic.
 
-SOLUTION: visited MDN doc on returning a function
+**SOLUTION**
+Visited MDN doc on returning a function
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return
 
 The article gives this example - it's possible to return a function 
-```function magic() {
+```
+function magic() {
   return function calc(x) {
     return x * 42;
   };
 }
 
 const answer = magic();
-answer(1337); // 56154```
+answer(1337); // 56154
+```
 
 Added return to the else statement where I call the function again - now program works as expected.
 
@@ -42,7 +45,8 @@ I wonder if i can do this another way other than getting the function to call it
 scoreboard() function may be unnecessary, doesn't concatenate as expected
 ```Computer is the winner!` + scoreboard())```
 
-Solution: Interesting ```typeof((`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`))``` returns `undefined` so added `String()` method to result
+**SOLUTION** 
+Interesting ```typeof((`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`))``` returns `undefined` so added `String()` method to result
 
 ⬜️ ISSUE 6 
 Explore why ```typeof((`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`))``` returns `undefined` ... I expected it to be a string even with variables
