@@ -1,3 +1,5 @@
+alert("Open the console to play");
+
 let gameCount = 1;
 let userScore = 0;
 let computerScore = 0;
@@ -20,13 +22,13 @@ function game() {
       game();
     } else {
       if (computerScore > userScore) {
-        console.log(`Computer is the winner!` + scoreboard());
+        console.log(scoreboard(userScore, computerScore) + " Computer is the winner!");
         console.log("Thanks for playing!");
       } else if (computerScore === userScore) {
-        console.log(`You're both winners!` + scoreboard());
+        console.log(scoreboard(userScore, computerScore) + " You're both winners!");
         console.log("Thanks for playing!");
       } else {
-        console.log(`You're the winner!` + scoreboard());
+        console.log(scoreboard(userScore, computerScore) + " You're the winner!");
         console.log("Thanks for playing!");
       }
     }
@@ -39,13 +41,14 @@ function getUserSelection(input) {
       return(convertedInput);
     } else {
       input = prompt(`Sorry ${input} is not a valid weapon. Please choose again`, "Type Rock, Scissors or Paper");
-      getUserSelection(input);
+      return getUserSelection(input);
     }
   }
 
 function getComputerChoice() {
-  const choices = ["Rock", "Scissors", "Paper"];
-  return choices[Math.floor(Math.random()*choices.length)];
+  const choices = ["Scissors", "Paper", "Rock"];
+  let index = Math.floor(Math.random() * choices.length);
+  return choices[index];
 }
 
 function gameRound(playerSelection, computerSelection) {
@@ -63,18 +66,6 @@ function gameRound(playerSelection, computerSelection) {
   }
 }
 
-function scoreboard() {
-    console.log(`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`);
+function scoreboard(userScore, computerScore) {
+    return String((`Scoreboard | YOU: ${userScore} | COMPUTER: ${computerScore}`));
 }
-
-// TESTS
-gameRound("Rock", "Scissors"); 
-// expected: You Win! Rock beats Scissors
-gameRound("Scissors", "Paper"); 
-// expected: You Win! Scissors beats Paper
-gameRound("Paper", "Rock"); 
-// expected: You Win! Paper beats Rock
-gameRound("Scissors", "Rock"); 
-// expected: Computer Wins! Rock beats Scissors
-gameRound("Scissors", "Scissors"); 
-// expected: It's a draw!
